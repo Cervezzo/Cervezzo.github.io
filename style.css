@@ -12,7 +12,7 @@ body{
     
 }
 .hijosBox{
-    width: 500px;
+    max-width: 600px;
     height: 300px;
     margin: 10px;
     border-radius: 2%;
