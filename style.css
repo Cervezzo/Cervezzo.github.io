@@ -1,46 +1,55 @@
-body{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #132a3dea;
-}
-.padreBox{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap:wrap;
-    flex-direction: row;
-    
-    
-}
-.hijosBox{
-    max-width: 600px;
-    height: 300px;
-    margin: 10px;
-    border-radius: 2%;
+/*
+colores: 
+#587059
+#bb8855
+#663322
+#eeddcc
+#887766
+
+*/
+
+body {
+  background-color: #587059;
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.centrado{
-    text-align: center;
-    color: bisque;
-}
-
-a{
-    color: antiquewhite;
-}
-
-a:visited{
-    color: blanchedalmond;
-}
-
-
-
-.tabla1{
+.flexPadre {
     display: flex;
     justify-content: center;
-    color: bisque;
+    flex-wrap: wrap;
+    
 }
 
-.tabla1 table, td, th{
-    border: 1px solid bisque;
-    padding: 10px;
-    font-size: 1.1em;
+.flexHijos img {
+  width: 350px;
+  height: 250px;
+  border-radius: 3px;
+}
+
+h1 {
+  text-align: center;
+  color: #663322;
+}
+
+figcaption {
+  text-align: center;
+  color: #eeddcc;
+  font-weight: bold;
+}
+
+figure{
+  border: #887766 3px solid;
+  padding: 4px;
+}
+
+
+
+.flexHijos :hover figcaption{
+  background-color: #663322;
+  transition: 1s;
+}
+
+.flexHijos {
+  transition: 1s;
 }
