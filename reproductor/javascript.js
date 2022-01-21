@@ -50,6 +50,7 @@ window.addEventListener("load", function(){
 
     buttonPlay.addEventListener("click", playPause);
     video.addEventListener("play", progressLoop);
+    video.addEventListener("click", playPause);
     buttonStop.addEventListener("click", stop);
     buttonSkipMas.addEventListener("click", progressLoop);
     buttonSkipMas.addEventListener("click", () => skip(5));
