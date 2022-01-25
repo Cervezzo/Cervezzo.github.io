@@ -1,5 +1,5 @@
-window.addEventListener("load", function(){
-    
+window.addEventListener("load", function () {
+
     let progress = document.getElementById("progreso");
     let timer = document.getElementById("tiempo");
     let buttonSkipMas = document.getElementById("skipMas");
@@ -55,8 +55,16 @@ window.addEventListener("load", function(){
     buttonSkipMas.addEventListener("click", progressLoop);
     buttonSkipMas.addEventListener("click", () => skip(5));
     buttonSkipMenos.addEventListener("click", () => skip(-5));
+
     //evento que captura el click y maximiza
     document.getElementById("maximizar").addEventListener("click", function (e) {
         getFullscreen(document.getElementById("video"));
     }, false);
+
+    //evento que captura el doble click y maximiza
+    document.getElementById("video").addEventListener("dblclick", function (e) {
+        getFullscreen(document.getElementById("video"));
+    }, false);
+
+    
 });
