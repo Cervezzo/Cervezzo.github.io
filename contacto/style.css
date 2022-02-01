@@ -156,3 +156,7 @@ span {
     cursor:pointer; 
     background-color: rgba(117, 76, 156, 0.918);
 }
+
+#cargando{
+    display: none;
+}
