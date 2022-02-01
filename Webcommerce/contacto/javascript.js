@@ -22,83 +22,86 @@ window.onload = function () {
     let emailCorrecto = document.getElementById("emailCorrecto");
 
     formulario.addEventListener('submit', function () {
-        event.preventDefault();
-        // alert("ok");
 
-        //mostramos el div que contiene la imagen que va a girar
-        cargando.style = "display: block;";
-        document.getElementById('form1').style = "opacity: .5"
         event.preventDefault(); //Cancelo el envío
-        setTimeout(function () { //Aplicamos el temporizador
-            /* formulario.submit(); */ //Envío los datos
-            // simulamos la carga del envío
-            cargando.style = "display: none;";
-            formulario.style = "display: none;";
-            confirmacion.style = "visibility: visible";
+        //mostramos el div que contiene la imagen que va a girar
+        if (expRegEmail.test(email.value)) {
 
-            // COOKIES
-            // Guardamos el Teléfono en una cookie
-            let telefono = document.getElementById("telf").value;
+            cargando.style = "display: block;";
+            document.getElementById('form1').style = "opacity: .5"
+            setTimeout(function () { //Aplicamos el temporizador
+                /* formulario.submit(); */ //Envío los datos
+                // simulamos la carga del envío
+                cargando.style = "display: none;";
+                formulario.style = "display: none;";
+                confirmacion.style = "visibility: visible";
 
-            //encodeURIComponent(texto) sirve para codificar el mensaje, escapa caracteres especiales y simbolos
+                // COOKIES
+                // Guardamos el Teléfono en una cookie
+                let telefono = document.getElementById("telf").value;
 
-            document.cookie = "telefono=" + encodeURIComponent(telefono) + "; max-age=3600; path=/";
+                //encodeURIComponent(texto) sirve para codificar el mensaje, escapa caracteres especiales y simbolos
 
-            // Guardamos el email en una cookie
+                document.cookie = "telefono=" + encodeURIComponent(telefono) + "; max-age=3600; path=/";
 
-            document.cookie = "email=" + encodeURIComponent(email.value) + "; max-age=3600; path=/";
-            
+                // Guardamos el email en una cookie
 
-            // aparece cartel de confirmacion
-            document.getElementById("btnConfirm").addEventListener('click', function () {
-                confirmacion.style = "visibility: hidden;";
-                formulario.style = "display: block;";
-            })
-            return true;
-        }, 4000);
+                document.cookie = "email=" + encodeURIComponent(email.value) + "; max-age=3600; path=/";
+                
+                // aparece cartel de confirmacion
+                
+                //se envía el formulario
+                // delay de 2.5 segundos
+                document.getElementById("btnConfirm").addEventListener('click', function () {
+                    confirmacion.style = "visibility: hidden;";
+                    formulario.style = "display: block;";
+                    formulario.submit();
+                })
+            }, 1500);
+        }
     });
+    
 
     // función que valida por js el email
-    // (no funciona bien porque envía el formulario aunque esté mal el campo validado.)
+  
     function comprobarEmail(valor) {
 
         if (expRegEmail.test(valor)) {
             emailCorrecto.innerHTML = "Email correcto.";
             emailCorrecto.style = "color:green";
             enviar.disabled = false;
-
         } else {
             emailCorrecto.style = "color:red";
             emailCorrecto.innerHTML = "Email incorrecto.";
             enviar.disabled = true;
         }
     }
-    
-    
+
+
     // mensaje cookie
-    
+
     //para leer las cookies
     function readCookie(name) {
-        
+
         return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + name.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
-        
+
     };
     let aceptCookies = document.getElementById("aceptCookies");
-    
+
     aceptCookies.addEventListener("click", crearCookieAceptarTerminos);
-    
-    
-    
-    function crearCookieAceptarTerminos(){
-        let mes = 60*60*24*30;
+
+
+
+    function crearCookieAceptarTerminos() {
+        let mes = 60 * 60 * 24 * 30;
         document.cookie = "aceptarCookie=cookies-aceptadas; max-age=" + mes;
         document.getElementById("aviso-cookies").style = "display: none;";
     }
 
 
-    if(!readCookie("aceptarCookie")){
+    if (!readCookie("aceptarCookie")) {
         document.getElementById("aviso-cookies").style = "display: block;";
-    }else{
+    } else {
         document.getElementById("aviso-cookies").style = "display: none;";
     }
 
