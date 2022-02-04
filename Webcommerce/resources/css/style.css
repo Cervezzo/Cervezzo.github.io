@@ -536,8 +536,7 @@ body {
 }
 
 .figcentrado figcaption {
-    margin-left: 200px;
-    margin-top: 20px;
+    text-align: center;
     margin-bottom: 20px;
     color: rgb(92, 92, 92);
 }
