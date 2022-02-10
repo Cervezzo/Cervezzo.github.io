@@ -662,10 +662,10 @@ body {
 
 }
 
-#logo .gear {
+/*#logo .gear {
     animation: gearDirection2 1s linear both;
 
-}
+}*/
 @keyframes gearDirection2 {
     0% {
         transform: translateX(-100px);
